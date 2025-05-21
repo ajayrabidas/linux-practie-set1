@@ -1,0 +1,121 @@
+Insert your questions in the respective section please:
+--------------------------------------------------------------
+
+#########       Topic: File Permissions               #########
+
+What are the different types of file permissions in Linux?
+Explain the read (r), write (w), and execute (x) permissions and their significance for files and directories.
+"Read (r): Allows viewing the contents of a file or listing a directory's contents.
+Write (w): Permits modifying a file's contents or adding/removing files in a directory.
+Execute (x): Enables running a file as a program or accessing a directory's contents"
+
+How are permissions assigned to user, group, and others?
+Discuss the rwxr-xr-- format and the roles of user (owner), group, and others.
+"Permissions are divided among:
+User (u): The file's owner.
+Group (g): Users belonging to the file's group.
+Others (o): All other users.
+For example, -rwxr-xr-- means:
+User: Read, write, execute.
+Group: Read, execute.
+Others: Read only."
+
+What is the numeric (octal) representation of permissions?
+Describe how permissions translate to numbers, e.g., chmod 755 equates to rwxr-xr-x.
+"Permissions can be represented numerically:
+Read (r): 4
+Write (w): 2
+Execute (x): 1
+
+Summing these gives:
+rwx = 4+2+1 = 7
+rw- = 4+2+0 = 6
+r-- = 4+0+0 = 4
+
+So, chmod 755 file sets:
+User: 7 (rwx)
+Group: 5 (r-x)
+Others: 5 (r-x)"
+
+How do you change file permissions using chmod?
+Provide examples using both symbolic (chmod u+x file) and numeric (chmod 755 file) modes.
+"Symbolic mode: chmod u+x file adds execute permission for the user.
+Numeric mode: chmod 755 file sets permissions as described above."
+
+How do you change file ownership using chown and chgrp?
+Explain how to change the owner and group of a file.
+"Change owner: chown user file
+Change group: chgrp group file
+Change both: chown user:group file"
+
+A user cannot write to a file they own. What could be the issue?
+Discuss potential causes like directory permissions or file attributes.
+"Possible reasons:
+File is read-only: Check with ls -l.
+Directory lacks write permission: User needs write permission on the directory.
+File has immutable attribute: Check with lsattr; remove with chattr -i file."
+
+How do you set default permissions for new files?
+Explain the role of umask in setting default permissions.
+"Use umask to define default permissions.
+Default file permissions: 666
+Default directory permissions: 777
+umask subtracts permissions.
+
+For example, umask 022 results in:
+Files: 644 (rw-r--r--)
+Directories: 755 (rwxr-xr-x)"
+
+What is the difference between symbolic and numeric modes in chmod?
+Compare chmod u+x file vs. chmod 755 file.
+"Symbolic: Uses letters to represent permissions, e.g., chmod u+x file.
+Numeric: Uses numbers, e.g., chmod 755 file."
+
+How do you recursively change permissions for all files in a directory?
+Demonstrate using chmod -R for recursive permission changes.
+chmod -R 755 /path/to/directory
+
+A user cannot delete a file in a directory they have write access to. Why?
+Discuss directory permissions and the sticky bit's role.
+"Deleting a file requires write and execute permissions on the directory, not just the file.
+Also, if the directory has the sticky bit set (common in /tmp), only the file owner or root can delete files."
+
+What is the setuid permission, and how does it work?
+Explain how setuid allows users to execute a file with the file owner's privileges.
+
+A script with rwxr-xr-x permissions doesn't execute. What could be wrong?
+"Potential issues:
+Incorrect shebang: Ensure the first line specifies the correct interpreter, e.g., #!/bin/bash.
+Missing execute permission on interpreter: Check if /bin/bash is executable.
+Script has Windows line endings: Convert using dos2unix script.sh."
+
+A user cannot access a file despite having the correct permissions. What steps would you take to troubleshoot?
+"Check parent directory permissions: User needs execute permission on all parent directories.
+Verify ACLs: Use getfacl to check for restrictive ACLs.
+Inspect SELinux/AppArmor: Security modules might block access."
+
+
+
+#########       Linux Activity Monitoring          #########
+
+
+
+
+
+#########       Find Command          #########
+
+
+
+
+#########       Grep Command          #########
+
+
+
+
+#########       Linux Scenario based questions          #########
+
+
+
+
+
+#########       Practice_ File and Directory answers          #########
