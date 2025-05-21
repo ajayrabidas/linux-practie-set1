@@ -96,26 +96,3 @@ Inspect SELinux/AppArmor: Security modules might block access."
 
 
 
-#########       Linux Activity Monitoring          #########
-
-
-
-
-
-#########       Find Command          #########
-
-
-
-
-#########       Grep Command          #########
-
-
-
-
-#########       Linux Scenario based questions          #########
-
-
-
-
-
-#########       File and Directory          #########
